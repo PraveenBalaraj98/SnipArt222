@@ -6,6 +6,7 @@ public interface IConstants {
 	String JDBC_USERNAME="root";
 	String JDBC_Password="root";
 	String ProjectUrl="http://opencart.abstracta.us/";
+	String filepath=".\\Data Properties\\CommonData.properties";
 	
 	int explicitly_wait=10;
 	int Implicit_wait=10;
