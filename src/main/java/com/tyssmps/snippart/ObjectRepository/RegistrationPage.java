@@ -1,9 +1,16 @@
 package com.tyssmps.snippart.ObjectRepository;
 
+import java.sql.SQLException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+/**
+ * This POM is for New user registration
+ * @author Nikhita Biradar
+ */
 
 public class RegistrationPage {
 	

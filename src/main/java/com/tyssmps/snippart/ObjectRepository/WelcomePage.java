@@ -5,6 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * This POM is for Welcome Page
+ * @author Nikhita Biradar
+ */
+
 public class WelcomePage {
 	@FindBy(xpath = "//span[@class='caret']")
 	private WebElement myAccontDropdown;
