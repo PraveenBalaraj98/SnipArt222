@@ -13,7 +13,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelUtility {
-	public String ExelFile(String sheetName,int rowNum,int CellNum) throws EncryptedDocumentException, IOException
+	
+	/*
+	 *  to get the string data from excel
+	 */
+	public String getExcelStringData(String sheetName,int rowNum,int CellNum) throws EncryptedDocumentException, IOException
 	{
    FileInputStream fis =new FileInputStream(IConstants.Exelpath);
    Workbook book = WorkbookFactory.create(fis);
@@ -23,6 +27,23 @@ public class ExcelUtility {
        return data;
 	
 	}
+	
+	/*
+	 * to get the numeric data from excel
+	 */
+	
+	public double getExcelNumericData(String sheetName, int rowNum, int cellNum) throws Throwable {
+		FileInputStream fis = new FileInputStream(IConstants.Exelpath);
+		Workbook book =	WorkbookFactory.create(fis);
+		Sheet sh =  book.getSheet(sheetName);
+		Row r = sh.getRow(rowNum);
+		double data = r.getCell(cellNum).getNumericCellValue();
+		return data;
+		
+	}
+	
+	
+	
 	public void StroreToExcel(String sheetName,int RowNum,int celNum,String value ) throws EncryptedDocumentException, IOException
 	{
 		FileInputStream fis =new FileInputStream(IConstants.Exelpath);
