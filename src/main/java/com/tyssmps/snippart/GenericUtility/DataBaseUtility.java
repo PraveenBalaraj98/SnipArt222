@@ -12,12 +12,13 @@ import java.sql.Statement;
 public class DataBaseUtility {
 	static Driver driver;
 	Statement state;
+	Connection con;
 
 	public void ConnectToDataBase() throws SQLException
 	{
          driver=new com.mysql.cj.jdbc.Driver();
 		DriverManager.registerDriver(driver);
-		Connection con = DriverManager.getConnection("IConstants.Jdbc_Url,IConstants.JDBC_USERNAME,IConstants.JDBC_Password");
+	 con = DriverManager.getConnection("IConstants.Jdbc_Url,IConstants.JDBC_USERNAME,IConstants.JDBC_Password");
 		//Statement state = con.createStatement();
 	}
 	
@@ -28,7 +29,10 @@ public class DataBaseUtility {
 		return result;
 				
 		}
-        
+        public void closeDb() throws SQLException
+        {
+        	con.close();
+        }
 	
 }
 
