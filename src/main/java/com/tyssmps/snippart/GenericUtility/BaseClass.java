@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -29,22 +30,23 @@ public class BaseClass {
 		}
 	@BeforeClass
 	public void BrowserLaunch()
-	{
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
+	public void configBC() throws Throwable {
+		System.out.println("=============Launch the Browser=======");
+		String BROWSER = flib.getPropertyKeyValue("browser");
+		if(BROWSER.equalsIgnoreCase("Chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driver=new ChromeDriver();
+		}else if (BROWSER.equalsIgnoreCase("firefox")) {			
+			WebDriverManager.firefoxdriver().setup();
+			driver=new FirefoxDriver();
+		}else {
+			System.out.println("INCORRECT BROWSER");
+		} 
+
 		driver.manage().window().maximize();
-		driver.get(IConstants.ProjectUrl);
-	}
-	@BeforeMethod
-	public void Login()
-	{
 		
 	}
-   @AfterMethod
-   public void logout()
-   {
-	   
-   }
+	
 	@AfterClass
 	public void closeBrowser()
 	{
