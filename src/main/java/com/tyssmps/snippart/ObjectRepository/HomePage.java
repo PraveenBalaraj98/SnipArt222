@@ -9,7 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 import com.thoughtworks.qdox.model.expression.And;
 
 public class HomePage {
-
+	
+	/**
+	 * @author SaiPrasad 
+	 * This POM class contains all the home elements 
+	 * */
+	
+	
 	public WebDriver driver;
 
 	public HomePage(WebDriver driver) {
@@ -18,11 +24,7 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	/*
-	 * @FindAll({@FindBy(name="year") , @FindBy(xpath =
-	 * "//select[@class='form-control' and @name='year']" )}) private WebElement
-	 * yearListEdit;
-	 */
+	
 
 	@FindAll({ @FindBy(name = "search"), @FindBy(xpath = "//input[@name='search' and  @type='text']") })
 	private WebElement searchTextFeild;
