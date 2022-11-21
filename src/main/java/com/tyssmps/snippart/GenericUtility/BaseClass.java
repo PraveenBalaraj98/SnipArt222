@@ -11,15 +11,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import com.tyssmps.snippart.ObjectRepository.HomePage;
+import com.tyssmps.snippart.ObjectRepository.RegistrationPage;
+import com.tyssmps.snippart.ObjectRepository.WelcomePage;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	WebDriver driver;
-	DataBaseUtility dlib=new DataBaseUtility();
-	ExcelUtility elib=new ExcelUtility();
-	FileUtility flib=new FileUtility();
-	JavaUtility jlib=new JavaUtility();
-	WebDriverUtility wlib=new WebDriverUtility();
+	public WebDriver driver;
+	public DataBaseUtility dlib=new DataBaseUtility();
+	public ExcelUtility elib=new ExcelUtility();
+	public FileUtility flib=new FileUtility();
+	public JavaUtility jlib=new JavaUtility();
+	public WebDriverUtility wlib=new WebDriverUtility();
+	public HomePage hLib=new HomePage(driver);
+	public RegistrationPage rLib=new RegistrationPage(driver);
+	public WelcomePage wLib=new WelcomePage(driver);
 	
 	@BeforeSuite
 	
