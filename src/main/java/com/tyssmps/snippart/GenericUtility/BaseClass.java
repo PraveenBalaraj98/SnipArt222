@@ -50,8 +50,7 @@ public class BaseClass {
 	public void closeBrowser()
 	{
 		driver.close();
-	}
-	
+	}	
     @AfterSuite()
     public void closeDatabase() throws SQLException
     
