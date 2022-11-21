@@ -23,7 +23,18 @@ public class JavaUtility {
 		return number;
 
 	}
-
+	public String  getSystemDateTime() {
+		Date date = new Date();
+		String currentDate = date.toString();
+		//System.out.println(currentDate);
+		String[] arr = currentDate.split(" ");
+		String yyyy = arr[5];
+		String dd = arr[2];
+		int mm = date.getMonth()+1;
+		String time = arr[3].replace(":", "");
+			String formate = dd+mm+yyyy+time;
+			return formate;
+	}
 	public String  getSystemDate(String format) {
 		String Date="";
 
