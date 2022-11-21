@@ -1,6 +1,7 @@
 package com.tyssmps.snippart.GenericUtility;
 
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,19 +16,15 @@ import org.testng.annotations.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	WebDriver driver;
+	public WebDriver driver;
+	public static WebDriver sdriver;
 	DataBaseUtility dlib=new DataBaseUtility();
 	ExcelUtility elib=new ExcelUtility();
 	FileUtility flib=new FileUtility();
 	JavaUtility jlib=new JavaUtility();
 	WebDriverUtility wlib=new WebDriverUtility();
 	
-	@BeforeSuite
 	
-		public void connectToDatabase() throws SQLException
-		{
-			dlib.ConnectToDataBase();
-		}
 	@BeforeClass
 	public void configBC() throws Throwable {
 		System.out.println("=============Launch the Browser=======");
@@ -39,10 +36,12 @@ public class BaseClass {
 			WebDriverManager.firefoxdriver().setup();
 			driver=new FirefoxDriver();
 		}else {
-			System.out.println("INCORRECT BROWSER");
+			System.out.println("IN-CORRECT BROWSER");
 		} 
 
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get(IConstants.ProjectUrl);
 		
 	}
 	
@@ -50,11 +49,5 @@ public class BaseClass {
 	public void closeBrowser()
 	{
 		driver.close();
-	}	
-    @AfterSuite()
-    public void closeDatabase() throws SQLException
-    
-    {
-    	dlib.closeDb();
-    }
+  }
 }
