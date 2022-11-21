@@ -51,6 +51,7 @@ public class BaseClass {
 	{
 		driver.close();
 	}
+	
     @AfterSuite()
     public void closeDatabase() throws SQLException
     
