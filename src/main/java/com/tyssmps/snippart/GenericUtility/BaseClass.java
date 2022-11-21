@@ -29,7 +29,6 @@ public class BaseClass {
 			dlib.ConnectToDataBase();
 		}
 	@BeforeClass
-	public void BrowserLaunch()
 	public void configBC() throws Throwable {
 		System.out.println("=============Launch the Browser=======");
 		String BROWSER = flib.getPropertyKeyValue("browser");
